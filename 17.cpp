@@ -43,11 +43,20 @@ void vedothi(float xmin, float xmax)
         veden2D(x,y);
     }
 }
+void tinhtien(float x, float y, float m, float n, float &x1, float &y1)
+{
+    x1 = x+m;
+    y1 = y+n;
+}
+void doixungtamO(float x, float y, float &x1, float &y1)
+{
+
+}
 int main()
 {
     int gd=0, gm;
     initgraph(&gd,&gm,"");
-    cuaso(-3*M_PI, -1.5, 4*M_PI, 1.5);
+    cuaso(-M_PI, -1, M_PI, 1);
     khungnhin(50,50,450,400);
     setcolor(4);
     vedothi(-M_PI/4, M_PI/4);
