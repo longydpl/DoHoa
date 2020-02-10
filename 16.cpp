@@ -81,14 +81,14 @@ void veanhdothi(float xmin, float xmax)
 
 int main()
 {
-    int gd=0, gm;
-    initgraph(&gd,&gm,"");
+    initwindow(640,480);
     cuaso(-5,-2.5,5,2.5);
     khungnhin(50,50,450,400);
     setcolor(4);
     vedothi(-2,2);
+    getch();
     setcolor(YELLOW);
     veanhdothi(-2,2);
     getch();
-    closegraph();
+    return 0;
 }
