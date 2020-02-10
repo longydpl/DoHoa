@@ -22,7 +22,7 @@ void chuyenden2D(float x, float y)
 {
     int xm = (int)(tlx*(x-xwmin)+ xvmin + 0.5);
     int ym = (int)(tly*(ywmax-y)+ yvmin + 0.5);
-    moveto(xm,ym)
+    moveto(xm,ym);
 }
 void veden2D(float x, float y)
 {
@@ -49,7 +49,7 @@ void tinhtien(float x, float y, float m, float n, float &x1, float &y1)
     x1 = x+m;
     y1 = y+n;
 }
-void quaytaigocO(float x, float y, float &x1, float y&1,float a)
+void quaytaigocO(float x, float y, float &x1, float &y1,float a)
 {
     x1 = x*cos(a) - y*sin(a);
     y1 = x*sin(a) - y*cos(a);
