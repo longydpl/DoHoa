@@ -50,7 +50,31 @@ void tinhtien(float x, float y, float m, float n, float &x1, float &y1)
 }
 void doixungtamO(float x, float y, float &x1, float &y1)
 {
-
+    x1 = -x;
+    y1 = -y;
+}
+void doixungquatam(float x, float y, float x0, float y0, float &x1, float &y1)
+{
+    float x11,y11,x12,y12;
+    tinhtien(x,y,x0,y0,x11,y11);
+    doixungtamO(x11,y11,x12,y12);
+    tinhtien(x12,y12,x0,y0,x1,y1);
+}
+void veanhdothi(float xmin, float xmax)
+{
+    float dx= 0.001;
+    float x = xmin;
+    float y = (sin(x)/cos(x)) - 2;
+    float x1,y1;
+    doixungquatam(x,y,0,-2,x1,y1);
+    chuyenden2D(x1,y1);
+    while(x<=xmax)
+    {
+        x+=dx;
+        y =(sin(x)/cos(x)) - 2;
+        doixungquatam(x,y,0,-2,x1,y1);
+        veden2D(x1,y1);
+    }
 }
 int main()
 {
@@ -60,6 +84,9 @@ int main()
     khungnhin(50,50,450,400);
     setcolor(4);
     vedothi(-M_PI/4, M_PI/4);
+    getch();
+    setcolor(YELLOW);
+    veanhdothi(-M_PI/4, M_PI/4);
     getch();
     closegraph();
     return 0;
