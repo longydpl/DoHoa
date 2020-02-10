@@ -44,6 +44,41 @@ void vedothi(float xmin, float xmax)
     }
 }
 
+void tinhtien(float x, float y, float m, float n, float &x1, float &y1)
+{
+    x1 = x+m;
+    y1 = y+n;
+}
+void quaytaigocO(float x, float y, float &x1, float y&1,float a)
+{
+    x1 = x*cos(a) - y*sin(a);
+    y1 = x*sin(a) - y*cos(a);
+}
+void quaytaidiem(float x, float y, float x0, float y0, float &x1, float &y1, float a)
+{
+    float x11,x12,y11,y12;
+    tinhtien(x,y,-x0,-y0,x11,y11);
+    quaytaigocO(x11,y11,x12,y12,a);
+    tinhtien(x12,y12,x0,y0,x1,y1);
+}
+void veanhdothi(float xmin, float xmax)
+{
+    float dx = 0.001;
+    float x = xmin ;
+    float y = x*x+1;
+    float x1,y1;
+    quaytaidiem(x,y,0,1,x1,y1,M_PI/2);
+    chuyenden2D(x1,y1);
+    while(x<=xmax)
+    {
+        x+=dx;
+        y= x*x+1;
+        quaytaidiem(x,y,0,1,x1,y1,M_PI/2);
+        veden2D(x1,y1);
+    }
+}
+
+
 int main()
 {
     int gd=0, gm;
@@ -52,6 +87,8 @@ int main()
     khungnhin(50,50,450,400);
     setcolor(4);
     vedothi(-2,2);
+    setcolor(YELLOW);
+    veanhdothi(-2,2);
     getch();
     closegraph();
 }
